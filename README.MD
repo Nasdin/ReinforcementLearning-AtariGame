@@ -14,7 +14,7 @@ Reinforcement learning using Asynchronous Advantage Actor-Critic (A3C) in Pytorc
 Implementation of A3C LSTM model trained it.
 
 So far model currently has shown the best performance I have seen for atari game environments.  Included in repo are trained models for SpaceInvaders-v0, MsPacman-v0, Breakout-v0, BeamRider-v0, Pong-v0, Seaquest-v0 and Asteroids-v0 
-##Optimizers and Shared optimizers/statitics
+## Optimizers and Shared optimizers/statitics
 
 #### RMSProp
 #### Adam
