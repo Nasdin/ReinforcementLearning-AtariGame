@@ -18,3 +18,4 @@
 2017-10-06 15:06:35,299 : LMD: trained_models/
 2017-10-06 15:07:04,665 : Time 00h 00m 29s, episode reward -21.0, episode length 1009, reward mean -21.0000
 2017-10-06 15:08:12,870 : Time 00h 01m 37s, episode reward -21.0, episode length 1027, reward mean -21.0000
+2017-10-06 15:09:21,614 : Time 00h 02m 46s, episode reward -21.0, episode length 1029, reward mean -21.0000
