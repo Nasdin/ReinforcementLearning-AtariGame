@@ -1,8 +1,8 @@
 {
   "Default": {
-    "crop1": 34,
-    "crop2": 34,
-    "dimension2": 80
+    "crop1": 50,
+    "crop2": 60,
+    "dimension2": 800
   },
   "Asteroids": {
     "crop1": 16,
