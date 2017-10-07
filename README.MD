@@ -43,18 +43,29 @@ The A3C algorithm was released by Google’s DeepMind group earlier this year, a
 
   Trained models are generated when you run through a full training episode for the sim. Continous running will update the model with new training. The L(Load) parameter is set to false in the demo, When you have trained data where it can pick up from, then set it to true.
 
+*In gym atari the agents randomly repeat the previous action with probability 0.25 and there is time/step limit that limits performance. You can adjust these parameters.*
+
 ## Optimizers and Shared optimizers/statistics
 
 #### RMSProp
-#### Adam
-	Both Shared and non shared available for Adam
-In GYM atari the agents randomly repeat the previous action with probability 0.25 and there is time/step limit that limits performance.
 
+RMSprop is an unpublished, adaptive learning rate method proposed by Geoff Hinton in Lecture 6e of his Coursera Class.
+
+RMSprop and Adadelta have both been developed independently around the same time stemming from the need to resolve Adagrad's radically diminishing learning rates. RMSprop in fact is identical to the first update vector of Adadelta 
+
+RMSprop as well divides the learning rate by an exponentially decaying average of squared gradients. Hinton suggests γ
+to be set to 0.9, while a good default value for the learning rate η is 0.001.
+
+#### Adaptive Moment Estimation (Adam) , Both Shared and non shared available for Adam
+is another method that computes adaptive learning rates for each parameter. In addition to storing an exponentially decaying average of past squared gradients vt like Adadelta and RMSprop, Adam also keeps an exponentially decaying average of past gradients mt, similar to momentum:
+
+Adam (short for Adaptive Moment Estimation) is an update to the RMSProp optimizer. In this optimization algorithm, running averages of both the gradients and the second moments of the gradients are used.
+	
 
 
 ## Training
-*It is important to limit number of worker threads to number of cpu cores available
-More than one thread per cpu core available is detrimental in training speed and effectiveness*
+It is important to limit number of worker threads to number of cpu cores available in your com.
+If you use more than one worker thread than the amount of cpu cores, it will result in poor performance and inefficiency.
 
 
 
