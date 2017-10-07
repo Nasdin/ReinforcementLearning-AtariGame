@@ -7,7 +7,7 @@
 # Ipython/Jupyter Notebook 
 ## Environment provided by OpenAI Gym and Universe
 	Inputs are changed in the Jupyter Notebook
-![A3C LSTM playing SpaceInvadersDeterministic-v3](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/SpaceInvaders.gif) ![A3C LSTM playing Breakout-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/Breakout.gif) 
+![A3C LSTM playing SpaceInvadersDeterministic-v3](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/img/SpaceInvaders.gif) ![A3C LSTM playing Breakout-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/img/Breakout.gif) 
 ## Asynchronous Advantage Actor-Critic (A3C) Reinforcement Learning Implementation
 ### Long Short Term Recurrent Neural Network with Pytorch
 
@@ -18,7 +18,7 @@ https://arxiv.org/pdf/1602.01783.pdf
 
 Asynchronous Advantage Actor-Critic (A3C)
 
-![A3C LSTM playing Seaquest-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/Seaquest.gif) ![A3C LSTM playing BeamRider-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/BeamRider.gif) 
+![A3C LSTM playing Seaquest-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/img/Seaquest.gif) ![A3C LSTM playing BeamRider-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/img/BeamRider.gif) 
 ##### Description
 The A3C algorithm was released by Google’s DeepMind group earlier this year, and it made a splash by essentially obsoleting DQN. It was faster, simpler, more robust, and able to achieve much better scores on the standard battery of Deep RL tasks. On top of all that it could work in continuous as well as discrete action spaces. Given this, it has become the go-to Deep RL algorithm for new challenging problems with complex state and action spaces
 
@@ -26,7 +26,7 @@ The A3C algorithm was released by Google’s DeepMind group earlier this year, a
     
 <a href= "https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-8-asynchronous-actor-critic-agents-a3c-c88f72a5e9f2" >Medium Article explaining A3c reinforcement learning </a>
 <br>
-![A3C LSTM playing MsPacman-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/MsPacman.gif)
+![A3C LSTM playing MsPacman-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/img/MsPacman.gif)
 ## The Actor-Critic Structure
 <img src = "img/A3CStructure.png">
 
@@ -42,7 +42,7 @@ The A3C algorithm was released by Google’s DeepMind group earlier this year, a
 
 ## Trained models
 
-  Trained models are generated when you run through a full training episode for the sim. Continous running will update the model with new training. The L(Load) parameter is set to false in the demo, When you have trained data where it can pick up from, then set it to true.
+  Trained models are generated when you run through a full training episode for the sim. Continous running will update the model with new training. The L(Load) parameter is set to false in the img, When you have trained data where it can pick up from, then set it to true.
 
 *In gym atari the agents randomly repeat the previous action with probability 0.25 and there is time/step limit that limits performance. You can adjust these parameters.*
 
