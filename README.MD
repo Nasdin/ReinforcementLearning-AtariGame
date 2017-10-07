@@ -1,5 +1,8 @@
-# Reinforcement Learning implementation using Pytorch on Atari Games
-	Using OpenAi Gym and Universe. LSTM(Long Short Term Memory) with Pytorch
+# Reinforcement Learning implementation of LSTM with Asynchronous Advantage Actor Critic Algorithm
+## Using Pytorch on OpenAI Atari Games
+	Using OpenAi Gym and Universe. 
+	LSTM(Long Short Term Memory) with Pytorch
+	Implementation of Google Deepmind's Asynchronous Advantage Actor-Critic (A3C)
 
 # Ipython/Jupyter Notebook 
 	Inputs are changed in the Jupyter Notebook
