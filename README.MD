@@ -5,32 +5,27 @@
 	Implementation of Google Deepmind's Asynchronous Advantage Actor-Critic (A3C)
 
 # Ipython/Jupyter Notebook 
-	Inputs are changed in the Jupyter Notebook
-
-
 ## Environment provided by OpenAI Gym and Universe
+	Inputs are changed in the Jupyter Notebook
 ![A3C LSTM playing SpaceInvadersDeterministic-v3](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/SpaceInvaders.gif) ![A3C LSTM playing Breakout-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/Breakout.gif) 
-
-
 ## Asynchronous Advantage Actor-Critic (A3C) Reinforcement Learning Implementation
 ### Long Short Term Recurrent Neural Network with Pytorch
 
+An algorithm from Google Deep Mind's paper "Asynchronous Methods for Deep Reinforcement Learning."<br>
 https://arxiv.org/pdf/1602.01783.pdf
-An algorithm from Google Deep Mind's paper "Asynchronous Methods for Deep Reinforcement Learning."
- ![A3C LSTM playing BeamRider-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/BeamRider.gif) 
 
-
-
-### Using Google DeepMind's Idea. 
+### Using Google DeepMind's Algorithm. 
 
 Asynchronous Advantage Actor-Critic (A3C)
 
-![A3C LSTM playing Seaquest-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/Seaquest.gif)
+![A3C LSTM playing Seaquest-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/Seaquest.gif) ![A3C LSTM playing BeamRider-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/BeamRider.gif) 
+##### Description
 The A3C algorithm was released by Google’s DeepMind group earlier this year, and it made a splash by essentially obsoleting DQN. It was faster, simpler, more robust, and able to achieve much better scores on the standard battery of Deep RL tasks. On top of all that it could work in continuous as well as discrete action spaces. Given this, it has become the go-to Deep RL algorithm for new challenging problems with complex state and action spaces
 
 
     
 <a href= "https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-8-asynchronous-actor-critic-agents-a3c-c88f72a5e9f2" >Medium Article explaining A3c reinforcement learning </a>
+<br>
 ![A3C LSTM playing MsPacman-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/demo/MsPacman.gif)
 ## The Actor-Critic Structure
 <img src = "img/A3CStructure.png">
