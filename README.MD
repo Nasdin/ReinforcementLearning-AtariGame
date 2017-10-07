@@ -36,6 +36,8 @@ The A3C algorithm was released by Google’s DeepMind group earlier this year, a
 
     
 ### Long Short Term Memory Recurrent Neural Nets
+	Implemented using Pytorch
+
     
 
 
