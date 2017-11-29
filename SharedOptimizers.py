@@ -1,12 +1,10 @@
 import torch
-from torch.multiprocessing import Process
-import torch.nn as nn
-import torch.nn.init as init
-import torch.nn.functional as F
-from torch.autograd import Variable
-
 
 import torch.optim as optim
+
+
+# from skimage.transform import resize
+# from scipy.misc import imresize as resize
 
 
 class SharedRMSprop(optim.RMSprop):
@@ -85,6 +83,7 @@ class SharedRMSprop(optim.RMSprop):
 
         return loss
 
+
 class SharedAdam(optim.Adam):
     """Implements Adam algorithm with shared states.
     """
@@ -152,6 +151,7 @@ class SharedAdam(optim.Adam):
 
         return loss
 
+
 class SharedLrSchedAdam(optim.Adam):
     """Implements Adam algorithm with shared states.
     """
@@ -214,10 +214,10 @@ class SharedLrSchedAdam(optim.Adam):
 
                 denom = exp_avg_sq.sqrt().add_(group['eps'])
 
-                bias_correction1 = 1 - beta1**state['step'][0]
-                bias_correction2 = 1 - beta2**state['step'][0]
+                bias_correction1 = 1 - beta1 ** state['step'][0]
+                bias_correction2 = 1 - beta2 ** state['step'][0]
                 step_size = group['lr'] * \
-                    math.sqrt(bias_correction2) / bias_correction1
+                            math.sqrt(bias_correction2) / bias_correction1
                 p.data.addcdiv_(-step_size, exp_avg, denom)
 
         return loss
