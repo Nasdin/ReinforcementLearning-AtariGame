@@ -1,0 +1,45 @@
+2017-11-24 16:45:17,533 : OPT: Adam
+2017-11-24 16:45:17,534 : LG: ./log/
+2017-11-24 16:45:17,535 : SMD: ./modeldata/
+2017-11-24 16:45:17,536 : ENV: SpaceInvaders-v0
+2017-11-24 16:45:17,537 : G: 0.99
+2017-11-24 16:45:17,538 : CL: False
+2017-11-24 16:45:17,539 : config: SpaceInvaders
+2017-11-24 16:45:17,539 : M: 1000000
+2017-11-24 16:45:17,541 : L: True
+2017-11-24 16:45:17,542 : EC: ./settings.json
+2017-11-24 16:45:17,543 : SSL: 20
+2017-11-24 16:45:17,544 : S: 1
+2017-11-24 16:45:17,545 : seed: 42
+2017-11-24 16:45:17,546 : LR: 0.001
+2017-11-24 16:45:17,547 : T: 1.0
+2017-11-24 16:45:17,547 : W: 8
+2017-11-24 16:45:17,548 : SO: True
+2017-11-24 16:45:17,549 : NS: 20
+2017-11-24 16:45:17,551 : LMD: ./modeldata/
+2017-11-24 16:45:49,833 : Time 00h 00m 32s, episode reward 2895.0, episode length 3753, reward mean 2895.0000
+2017-11-24 16:47:10,696 : Time 00h 01m 52s, episode reward 2340.0, episode length 2343, reward mean 2617.5000
+2017-11-24 16:49:32,367 : Time 00h 04m 14s, episode reward 11355.0, episode length 8869, reward mean 5530.0000
+2017-11-24 16:51:09,094 : Time 00h 05m 51s, episode reward 5270.0, episode length 4445, reward mean 5465.0000
+2017-11-24 16:52:45,807 : Time 00h 07m 28s, episode reward 5010.0, episode length 4336, reward mean 5374.0000
+2017-11-24 16:54:12,251 : Time 00h 08m 54s, episode reward 3320.0, episode length 3126, reward mean 5031.6667
+2017-11-24 16:56:03,930 : Time 00h 10m 46s, episode reward 7445.0, episode length 6303, reward mean 5376.4286
+2017-11-24 16:57:41,828 : Time 00h 12m 24s, episode reward 5270.0, episode length 4685, reward mean 5363.1250
+2017-11-24 16:59:05,473 : Time 00h 13m 47s, episode reward 2750.0, episode length 2639, reward mean 5072.7778
+2017-11-24 17:00:51,077 : Time 00h 15m 33s, episode reward 6550.0, episode length 5415, reward mean 5220.5000
+2017-11-24 17:02:27,071 : Time 00h 17m 09s, episode reward 4925.0, episode length 4348, reward mean 5193.6364
+2017-11-24 17:03:45,683 : Time 00h 18m 27s, episode reward 2085.0, episode length 2270, reward mean 4934.5833
+2017-11-24 17:06:06,522 : Time 00h 20m 48s, episode reward 12540.0, episode length 10000, reward mean 5519.6154
+2017-11-24 17:07:46,573 : Time 00h 22m 28s, episode reward 5310.0, episode length 4782, reward mean 5504.6429
+2017-11-24 17:09:26,329 : Time 00h 24m 08s, episode reward 5900.0, episode length 4818, reward mean 5531.0000
+2017-11-24 17:11:13,932 : Time 00h 25m 56s, episode reward 6985.0, episode length 5752, reward mean 5621.8750
+2017-11-24 17:12:33,536 : Time 00h 27m 15s, episode reward 2445.0, episode length 2344, reward mean 5435.0000
+2017-11-24 17:14:08,068 : Time 00h 28m 50s, episode reward 4930.0, episode length 4200, reward mean 5406.9444
+2017-11-24 17:15:48,918 : Time 00h 30m 31s, episode reward 5885.0, episode length 5002, reward mean 5432.1053
+2017-11-24 17:17:28,062 : Time 00h 32m 10s, episode reward 5420.0, episode length 4680, reward mean 5431.5000
+2017-11-24 17:18:56,378 : Time 00h 33m 38s, episode reward 3920.0, episode length 3476, reward mean 5359.5238
+2017-11-24 17:20:44,839 : Time 00h 35m 27s, episode reward 6870.0, episode length 5807, reward mean 5428.1818
+2017-11-24 17:22:14,225 : Time 00h 36m 56s, episode reward 4035.0, episode length 3541, reward mean 5367.6087
+2017-11-24 17:23:33,875 : Time 00h 38m 16s, episode reward 2385.0, episode length 2365, reward mean 5243.3333
+2017-11-24 17:24:56,261 : Time 00h 39m 38s, episode reward 2520.0, episode length 2723, reward mean 5134.4000
+2017-11-24 17:26:03,281 : Time 00h 40m 45s, episode reward 540.0, episode length 812, reward mean 4957.6923
