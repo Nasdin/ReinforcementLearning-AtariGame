@@ -1,52 +1,19 @@
-2017-11-24 17:27:27,970 : OPT: Adam
-2017-11-24 17:27:27,973 : LG: ./log/
-2017-11-24 17:27:27,975 : SMD: ./modeldata/
-2017-11-24 17:27:27,977 : ENV: MsPacman-v0
-2017-11-24 17:27:27,979 : G: 0.99
-2017-11-24 17:27:27,980 : CL: False
-2017-11-24 17:27:27,982 : config: MsPacman
-2017-11-24 17:27:27,983 : M: 1000000
-2017-11-24 17:27:27,985 : L: True
-2017-11-24 17:27:27,986 : EC: ./settings.json
-2017-11-24 17:27:27,987 : SSL: 20
-2017-11-24 17:27:27,988 : seed: 42
-2017-11-24 17:27:27,989 : LR: 0.0001
-2017-11-24 17:27:27,990 : T: 1.0
-2017-11-24 17:27:27,992 : W: 8
-2017-11-24 17:27:27,993 : SO: True
-2017-11-24 17:27:27,994 : NS: 20
-2017-11-24 17:27:27,995 : LMD: ./modeldata/
-2017-11-24 17:27:52,692 : Time 00h 00m 24s, episode reward 6930.0, episode length 2815, reward mean 6930.0000
-2017-11-24 17:29:18,665 : Time 00h 01m 50s, episode reward 6860.0, episode length 2841, reward mean 6895.0000
-2017-11-24 17:30:46,112 : Time 00h 03m 17s, episode reward 6230.0, episode length 3000, reward mean 6673.3333
-2017-11-24 17:32:06,450 : Time 00h 04m 38s, episode reward 4920.0, episode length 2144, reward mean 6235.0000
-2017-11-24 17:33:25,610 : Time 00h 05m 57s, episode reward 5080.0, episode length 2119, reward mean 6004.0000
-2017-11-24 17:34:54,327 : Time 00h 07m 26s, episode reward 7400.0, episode length 3022, reward mean 6236.6667
-2017-11-24 17:36:22,703 : Time 00h 08m 54s, episode reward 7550.0, episode length 2961, reward mean 6424.2857
-2017-11-24 17:37:50,221 : Time 00h 10m 22s, episode reward 6540.0, episode length 2874, reward mean 6438.7500
-2017-11-24 17:39:10,822 : Time 00h 11m 42s, episode reward 4520.0, episode length 2144, reward mean 6225.5556
-2017-11-24 17:40:36,400 : Time 00h 13m 08s, episode reward 7140.0, episode length 2674, reward mean 6317.0000
-2017-11-24 17:42:02,412 : Time 00h 14m 34s, episode reward 6450.0, episode length 2706, reward mean 6329.0909
-2017-11-24 17:43:23,989 : Time 00h 15m 55s, episode reward 4590.0, episode length 2246, reward mean 6184.1667
-2017-11-24 17:44:50,199 : Time 00h 17m 22s, episode reward 6440.0, episode length 2740, reward mean 6203.8462
-2017-11-24 17:46:11,798 : Time 00h 18m 43s, episode reward 5380.0, episode length 2241, reward mean 6145.0000
-2017-11-24 17:47:33,610 : Time 00h 20m 05s, episode reward 5380.0, episode length 2266, reward mean 6094.0000
-2017-11-24 17:49:00,725 : Time 00h 21m 32s, episode reward 6320.0, episode length 2845, reward mean 6108.1250
-2017-11-24 17:50:33,215 : Time 00h 23m 05s, episode reward 8270.0, episode length 3386, reward mean 6235.2941
-2017-11-24 17:51:55,425 : Time 00h 24m 27s, episode reward 5180.0, episode length 2308, reward mean 6176.6667
-2017-11-24 17:53:15,010 : Time 00h 25m 46s, episode reward 4770.0, episode length 2045, reward mean 6102.6316
-2017-11-24 17:54:40,604 : Time 00h 27m 12s, episode reward 6920.0, episode length 2677, reward mean 6143.5000
-2017-11-24 17:56:00,052 : Time 00h 28m 31s, episode reward 4800.0, episode length 2026, reward mean 6079.5238
-2017-11-24 17:57:30,322 : Time 00h 30m 02s, episode reward 7730.0, episode length 3159, reward mean 6154.5455
-2017-11-24 17:59:01,915 : Time 00h 31m 33s, episode reward 6740.0, episode length 3323, reward mean 6180.0000
-2017-11-24 18:00:24,459 : Time 00h 32m 56s, episode reward 5350.0, episode length 2328, reward mean 6145.4167
-2017-11-24 18:01:46,542 : Time 00h 34m 18s, episode reward 5180.0, episode length 2302, reward mean 6106.8000
-2017-11-24 18:03:14,862 : Time 00h 35m 46s, episode reward 6840.0, episode length 2977, reward mean 6135.0000
-2017-11-24 18:04:44,174 : Time 00h 37m 15s, episode reward 7010.0, episode length 3063, reward mean 6167.4074
-2017-11-24 18:06:12,018 : Time 00h 38m 43s, episode reward 6280.0, episode length 2905, reward mean 6171.4286
-2017-11-24 18:07:42,519 : Time 00h 40m 14s, episode reward 6690.0, episode length 3178, reward mean 6189.3103
-2017-11-24 18:09:04,025 : Time 00h 41m 35s, episode reward 5180.0, episode length 2234, reward mean 6155.6667
-2017-11-24 18:10:24,230 : Time 00h 42m 56s, episode reward 4930.0, episode length 2097, reward mean 6116.1290
-2017-11-24 18:11:46,227 : Time 00h 44m 18s, episode reward 5390.0, episode length 2293, reward mean 6093.4375
-2017-11-24 18:13:15,558 : Time 00h 45m 47s, episode reward 6680.0, episode length 3063, reward mean 6111.2121
-2017-11-24 18:14:36,868 : Time 00h 47m 08s, episode reward 5140.0, episode length 2211, reward mean 6082.6471
+2017-11-29 23:00:51,534 : OPT: Adam
+2017-11-29 23:00:51,535 : LG: ./log/
+2017-11-29 23:00:51,536 : SMD: ./modeldata/
+2017-11-29 23:00:51,537 : ENV: MsPacman-v0
+2017-11-29 23:00:51,538 : G: 0.99
+2017-11-29 23:00:51,539 : CL: False
+2017-11-29 23:00:51,540 : config: MsPacman
+2017-11-29 23:00:51,541 : M: 1000000
+2017-11-29 23:00:51,542 : L: True
+2017-11-29 23:00:51,543 : EC: ./settings.json
+2017-11-29 23:00:51,543 : SSL: 20
+2017-11-29 23:00:51,544 : seed: 42
+2017-11-29 23:00:51,545 : LR: 0.0001
+2017-11-29 23:00:51,545 : T: 1.0
+2017-11-29 23:00:51,546 : W: 8
+2017-11-29 23:00:51,547 : SO: True
+2017-11-29 23:00:51,548 : NS: 20
+2017-11-29 23:00:51,548 : LMD: ./modeldata/
+2017-11-29 23:01:09,454 : Time 00h 00m 17s, episode reward 5040.0, episode length 2059, reward mean 5040.0000
