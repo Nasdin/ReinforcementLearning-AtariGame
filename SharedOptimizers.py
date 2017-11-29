@@ -1,8 +1,7 @@
+import math
+
 import torch
-
 import torch.optim as optim
-
-
 
 
 class SharedRMSprop(optim.RMSprop):
@@ -165,8 +164,8 @@ class SharedLrSchedAdam(optim.Adam):
         0.000004, 0.000003, 0.000002, 0.000001
     ]):
         super(SharedLrSchedAdam, self).__init__(params, lr, betas, eps,
-                                                weight_decay,sample_lr) #make these parameters as part of the class
-
+                                                weight_decay) #make these parameters as part of the class
+        self.sample_lr = sample_lr
         for group in self.param_groups:
             for p in group['params']:
                 state = self.state[p]
@@ -193,8 +192,8 @@ class SharedLrSchedAdam(optim.Adam):
             loss = closure()
 
 
-
-        lr = sample_lr[int(state['step'][0] // 40000000)]
+        #these are assuming the previous functions have already been run, then step will work, else these arent defined yet.
+        lr = self.sample_lr[int(state['step'][0] // 40000000)]
         group['lr'] = lr
 
         for group in self.param_groups:
