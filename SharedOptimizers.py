@@ -159,9 +159,13 @@ class SharedLrSchedAdam(optim.Adam):
                  lr=1e-3,
                  betas=(0.9, 0.999),
                  eps=1e-3,
-                 weight_decay=0):
+                 weight_decay=0, sample_lr = [
+        0.0001, 0.00009, 0.00008, 0.00007, 0.00006, 0.00005, 0.00004, 0.00003,
+        0.00002, 0.00001, 0.000009, 0.000008, 0.000007, 0.000006, 0.000005,
+        0.000004, 0.000003, 0.000002, 0.000001
+    ]):
         super(SharedLrSchedAdam, self).__init__(params, lr, betas, eps,
-                                                weight_decay)
+                                                weight_decay,sample_lr) #make these parameters as part of the class
 
         for group in self.param_groups:
             for p in group['params']:
@@ -187,6 +191,8 @@ class SharedLrSchedAdam(optim.Adam):
         loss = None
         if closure is not None:
             loss = closure()
+
+
 
         lr = sample_lr[int(state['step'][0] // 40000000)]
         group['lr'] = lr
