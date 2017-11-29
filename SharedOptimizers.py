@@ -3,8 +3,6 @@ import torch
 import torch.optim as optim
 
 
-# from skimage.transform import resize
-# from scipy.misc import imresize as resize
 
 
 class SharedRMSprop(optim.RMSprop):

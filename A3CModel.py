@@ -1,13 +1,12 @@
 import torch
-from torch.multiprocessing import Process
 import torch.nn as nn
-import torch.nn.init as init
 import torch.nn.functional as F
-from torch.autograd import Variable
 
 
-import torch.optim as optim
-
+def norm_col_init(weights, std=1.0):
+    x = torch.randn(weights.size())
+    x *= std / torch.sqrt((x**2).sum(1, keepdim=True))
+    return x
 
 class A3Clstm(torch.nn.Module):
     def __init__(self, num_inputs, action_space):
@@ -60,3 +59,4 @@ class A3Clstm(torch.nn.Module):
         x = hx
 
         return self.critic_linear(x), self.actor_linear(x), (hx, cx)
+
