@@ -1,52 +1,67 @@
 {
   "Default": {
-    "crop1": 30,
-    "crop2": 30,
-    "dimension2": 80
+      "crop1": 30,
+      "crop2": 210,
+      "dimension2": 80
   },
-  "Asteroids": {
-    "crop1": 16,
-    "crop2": 34,
-    "dimension2": 94
+  "Mario": {
+      "crop1": 35,
+      "crop2": 200,
+      "dimension2": 80
   },
-  "BeamRider": {
-    "crop1": 20,
-    "crop2": 20,
-    "dimension2": 80
+  "Sonic": {
+      "crop1": 40,
+      "crop2": 205,
+      "dimension2": 80
   },
-  "Breakout": {
-    "crop1": 34,
-    "crop2": 34,
-    "dimension2": 80
+  "128SineDot-Anthrox": {
+      "crop1": 30,
+      "crop2": 210,
+      "dimension2": 80
   },
-  "Centipede": {
-    "crop1": 36,
-    "crop2": 56,
-    "dimension2": 90
+  "SegaTween-BenRyves": {
+      "crop1": 30,
+      "crop2": 210,
+      "dimension2": 80
   },
-  "MsPacman": {
-    "crop1": 2,
-    "crop2": 10,
-    "dimension2": 84
+  "Happy10-BlindIO": {
+      "crop1": 30,
+      "crop2": 210,
+      "dimension2": 80
   },
-  "Pong": {
-    "crop1": 34,
-    "crop2": 34,
-    "dimension2": 80    
+  "512ColourTestDemo-ChrisCovell": {
+      "crop1": 30,
+      "crop2": 210,
+      "dimension2": 80
   },
-  "Seaquest": {
-    "crop1": 30,
-    "crop2": 30,
-    "dimension2": 80
+  "Dekadrive-Dekadence": {
+      "crop1": 30,
+      "crop2": 210,
+      "dimension2": 80
   },
-  "SpaceInvaders": {
-    "crop1": 8,
-    "crop2": 36,
-    "dimension2": 94
+  "Automaton-DerekLedbetter": {
+      "crop1": 30,
+      "crop2": 210,
+      "dimension2": 80
   },
-  "VideoPinball": {
-    "crop1": 42,
-    "crop2": 60,
-    "dimension2": 89
+  "Fire-dox": {
+      "crop1": 30,
+      "crop2": 210,
+      "dimension2": 80
+  },
+  "FamiCONIntro-dr88": {
+      "crop1": 30,
+      "crop2": 210,
+      "dimension2": 80
+  },
+  "Airstriker-Electrokinesis": {
+      "crop1": 30,
+      "crop2": 210,
+      "dimension2": 80
+  },
+  "LostMarbles-Vantage": {
+      "crop1": 30,
+      "crop2": 210,
+      "dimension2": 80
   }
 }

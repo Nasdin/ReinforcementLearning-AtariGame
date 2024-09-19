@@ -1,12 +1,21 @@
-# Reinforcement Learning implementation of LSTM with Asynchronous Advantage Actor Critic Algorithm
-## Using Pytorch on OpenAI Atari Games
-	Using OpenAi Gym and Universe. 
-	LSTM(Long Short Term Memory) with Pytorch
-	Implementation of Google Deepmind's Asynchronous Advantage Actor-Critic (A3C)
+# Reinforcement Learning A3C with Gym-Retro
+## Overview
 
-# Ipython/Jupyter Notebook 
-## Environment provided by OpenAI Gym and Universe
-	Inputs are changed in the Jupyter Notebook
+This project implements the Asynchronous Advantage Actor-Critic (A3C) algorithm with LSTM for scalable reinforcement learning using gym-retro environments. It leverages PyTorch 2 for model development and training.
+
+### Features
+
+- **A3C with LSTM:** Enhances the agent's ability to handle partial observability.
+- **Gym-Retro Integration:** Supports a wide range of retro games for training.
+- **PyTorch 2 Compatibility:** Utilizes the latest PyTorch features for optimal performance.
+- **Multiprocessing Support:** Efficiently trains multiple agents in parallel.
+- **Modular Architecture:** Clean separation of utilities, models, and agent logic.
+- **Structured Examples:** Dedicated training and testing scripts for each game.
+
+
+
+# Required python version = Python 3.8
+
 ![A3C LSTM playing SpaceInvadersDeterministic-v3](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/img/SpaceInvaders.gif) ![A3C LSTM playing Breakout-v0](https://github.com/Nasdin/ReinforcementLearning-AtariGame/blob/master/img/Breakout.gif) 
 ## Asynchronous Advantage Actor-Critic (A3C) Reinforcement Learning Implementation
 ### Long Short Term Recurrent Neural Network with Pytorch
@@ -62,11 +71,94 @@ is another method that computes adaptive learning rates for each parameter. In a
 
 Adam (short for Adaptive Moment Estimation) is an update to the RMSProp optimizer. In this optimization algorithm, running averages of both the gradients and the second moments of the gradients are used.
 	
-
+# WARNING, ROM Files
+You must download the ROM files for the games you want to train and test. 
+https://retro.readthedocs.io/en/latest/index.html
 
 ## Training
 It is important to limit number of worker threads to number of cpu cores available in your com.
 If you use more than one worker thread than the amount of cpu cores, it will result in poor performance and inefficiency.
 
 
+## Installation
 
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/reinforcement_learninga3c.git
+   cd reinforcement_learninga3c
+   ```
+
+2. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Install Gym-Retro Games:**
+   Follow the [gym-retro documentation](https://github.com/openai/retro#installation) to install the desired games.
+
+## Usage
+
+### Training Agents
+
+To train an agent on a specific game (e.g., Mario), navigate to the corresponding example subfolder and run the `train.py` script.
+## Examples
+
+bash
+python -m examples.128_sine_dot.train
+python -m examples.automaton.train
+
+### Testing Agents
+
+To test a trained agent with rendering enabled, navigate to the corresponding example subfolder and run the `test.py` script.
+
+bash
+python -m examples.128_sine_dot.test
+python -m examples.automaton.test
+
+## Examples
+
+Inside the `examples` directory, each game has its own subfolder containing `train.py` and `test.py` scripts. These scripts are configured to train and test agents on their respective games.
+
+examples/
+├── mario/
+│ ├── train.py
+│ └── test.py
+├── sonic/
+│ ├── train.py
+│ └── test.py
+
+
+## Project Structure
+
+- `reinforcement_learninga3c/`
+  - `agent.py`: Defines the Agent class.
+  - `A3CModel.py`: Contains the A3Clstm model architecture.
+  - `SharedOptimizers.py`: Implements shared optimizers for multiprocessing.
+  - `utils.py`: Utility functions for logging, configuration, and environment setup.
+  - `__init__.py`: Initializes the reinforcement_learninga3c package.
+  - `examples/`
+    - `mario/`
+	  - `train.py`: Training script for Mario.
+	  - `test.py`: Testing script for Mario.
+    - `sonic/`
+	  - `train.py`: Training script for Sonic.
+	  - `test.py`: Testing script for Sonic.
+- `modeldata/`: Directory to store saved model data.
+- `settings.json`: Configuration file for various environments.
+- `requirements.txt`: Lists project dependencies.
+- `README.MD`: Project documentation.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+
+# Reinforcement Learning implementation of LSTM with Asynchronous Advantage Actor Critic Algorithm
+## Using Pytorch on OpenAI Atari Games
+	Using OpenAi Gym and Universe. 
+	LSTM(Long Short Term Memory) with Pytorch
+	Implementation of Google Deepmind's Asynchronous Advantage Actor-Critic (A3C)

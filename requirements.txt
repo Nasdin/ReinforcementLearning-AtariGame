@@ -1,0 +1,8 @@
+numpy
+gymnasium
+gym-retro
+opencv-python
+scikit-image
+torch>=2.0.0
+torchvision
+torchaudio

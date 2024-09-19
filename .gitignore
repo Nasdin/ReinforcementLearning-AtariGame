@@ -27,6 +27,7 @@ $RECYCLE.BIN/
 .DS_Store
 .AppleDouble
 .LSOverride
+__pycache__
 
 # Thumbnails
 ._*
@@ -49,3 +50,13 @@ Temporary Items
 ## Stupid Ipython Notebook Checkpoint
 .ipynb_checkpoints
 .fuse*
+*.pyc
+*.dat
+*.json
+*.log
+*.pth
+*.pkl
+*.pt
+*.pth.tar
+*.tar
+*.zip
