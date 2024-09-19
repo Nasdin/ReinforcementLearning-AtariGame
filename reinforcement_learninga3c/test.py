@@ -1,17 +1,17 @@
-import json
-import logging
 import os
 import time
-import torch
-from torch.autograd import Variable
-from torch.multiprocessing import Process
-import torch.nn.functional as F
-import torch.optim as optim
 
-from reinforcement_learninga3c.agent import Agent
+import torch
+from torch.multiprocessing import Process
+
 from reinforcement_learninga3c.A3CModel import A3Clstm
+from reinforcement_learninga3c.agent import Agent
 from reinforcement_learninga3c.SharedOptimizers import SharedLrSchedAdam
-from reinforcement_learninga3c.utils import setup_logger, read_config, ensure_shared_grads, atari_env, load_arguments, Args
+from reinforcement_learninga3c.utils import (Args, atari_env,
+                                             ensure_shared_grads,
+                                             load_arguments, read_config,
+                                             setup_logger)
+
 
 def test(args: Args, shared_model: torch.nn.Module, env_conf: dict, render: bool = False):
     logger = setup_logger(f"{args.environment}_log", f"{args.log_dir}{args.environment}_log")
@@ -24,7 +24,10 @@ def test(args: Args, shared_model: torch.nn.Module, env_conf: dict, render: bool
     start_time = time.time()
     num_tests = 0
     reward_total_sum = 0
-    player = Agent(model=A3Clstm(env.observation_space.shape[0], env.action_space), env=env, args=args)
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    shared_model.to(device)
+    
+    player = Agent(model=A3Clstm(env.observation_space.shape[0], env.action_space).to(device), env=env, args=args)
     player.model.load_state_dict(shared_model.state_dict())
     player.model.eval()
 

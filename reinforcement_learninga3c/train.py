@@ -1,26 +1,30 @@
-import json
-import logging
 import os
-import time
+from typing import Optional
+
 import torch
-from torch.autograd import Variable
-from torch.multiprocessing import Process
 import torch.nn.functional as F
-import torch.optim as optim
+from torch.multiprocessing import Process
+from torch.optim import Optimizer
 
-from reinforcement_learninga3c.agent import Agent
 from reinforcement_learninga3c.A3CModel import A3Clstm
+from reinforcement_learninga3c.agent import Agent
 from reinforcement_learninga3c.SharedOptimizers import SharedLrSchedAdam
-from reinforcement_learninga3c.utils import ensure_shared_grads, atari_env, load_arguments, Args
+from reinforcement_learninga3c.utils import (Args, atari_env,
+                                             ensure_shared_grads,
+                                             load_arguments)
 
-def train(rank: int, args: Args, shared_model: torch.nn.Module, optimizer: optim.Optimizer, env_conf: dict):
+
+def train(rank: int, args: Args, shared_model: torch.nn.Module, optimizer: Optional[Optimizer], env_conf: dict):
     torch.manual_seed(args.seed + rank)
     env = atari_env(args.environment, env_conf)
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    shared_model.to(device)
+    
     if optimizer is None:
         optimizer = SharedLrSchedAdam(shared_model.parameters(), lr=args.learning_rate)
 
     env.env.seed(args.seed + rank)
-    player = Agent(model=A3Clstm(env.observation_space.shape[0], env.action_space), env=env, args=args)
+    player = Agent(model=A3Clstm(env.observation_space.shape[0], env.action_space).to(device), env=env, args=args)
     player.model.train()
 
     while True:
@@ -41,7 +45,7 @@ def train(rank: int, args: Args, shared_model: torch.nn.Module, optimizer: optim
         R = torch.zeros(1, 1)
         if not player.done:
             with torch.no_grad():
-                value, _, _ = player.model(player.state.unsqueeze(0), (player.hx, player.cx))
+                value, _, _ = player.model(player.state.unsqueeze(0).to(device), (player.hx, player.cx))
                 R = value
 
         player.values.append(R)

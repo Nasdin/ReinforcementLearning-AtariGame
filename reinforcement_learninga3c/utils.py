@@ -1,15 +1,18 @@
 import json
 import logging
-from typing import Tuple, Optional
-import torch
-from gym import make
-import retro
-import numpy as np
 import os
 from dataclasses import dataclass
+from typing import Optional, Tuple
+
+import numpy as np
+import retro
+import torch
+from gym import make
 
 from .A3CModel import A3Clstm
-from .SharedOptimizers import SharedLrSchedAdam
+from .SharedOptimizers import (SharedLrSchedAdam,  # Updated import
+                               SharedRMSProp)
+
 
 def setup_logger(logger_name: str, log_file: str, level=logging.INFO):
     """Initialize and configure logger."""
@@ -110,7 +113,7 @@ class Args:
             env_config=args_dict.get('env_config', 'settings.json')
         )
 
-def load_arguments(args_dict: dict) -> Tuple[dict, torch.nn.Module, Optional[SharedLrSchedAdam]]:
+def load_arguments(args_dict: dict) -> Tuple[dict, torch.nn.Module, Optional[Optimizer]]:
     """Load and initialize arguments, shared models, and optimizers."""
     undo_logger_setup()
     torch.set_default_dtype(torch.float32)
@@ -122,7 +125,10 @@ def load_arguments(args_dict: dict) -> Tuple[dict, torch.nn.Module, Optional[Sha
     setup_json = read_config(args.env_config)
     env_conf = setup_json.get(args.config, setup_json.get(args.environment, {}))
 
-    shared_model = A3Clstm(env_conf.get('observation_space', 3), env_conf.get('action_space', 4))
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    torch.set_default_device(device)
+    
+    shared_model = A3Clstm(env_conf.get('observation_space', 3), env_conf.get('action_space', 4)).to(device)
     if args.load_model:
         model_filename = f"{args.environment}.dat"
         model_path = os.path.join(args.load_model_dir, model_filename)
@@ -136,7 +142,12 @@ def load_arguments(args_dict: dict) -> Tuple[dict, torch.nn.Module, Optional[Sha
     shared_model.share_memory()
 
     if args.shared_optimizer:
-        optimizer = SharedLrSchedAdam(shared_model.parameters(), lr=args.learning_rate)
+        if args.optimizer == 'adam':
+            optimizer = SharedLrSchedAdam(shared_model.parameters(), lr=args.learning_rate)
+        elif args.optimizer == 'rmsprop':
+            optimizer = SharedRMSProp(shared_model.parameters(), lr=args.learning_rate)
+        else:
+            raise ValueError(f"Unsupported optimizer type: {args.optimizer}")
         optimizer.share_memory()
     else:
         optimizer = None

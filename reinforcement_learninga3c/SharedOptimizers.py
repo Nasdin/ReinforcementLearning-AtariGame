@@ -1,14 +1,16 @@
 import math
+from typing import Callable, List, Optional, Tuple
+
 import torch
-from torch.optim import Optimizer
-from typing import List, Optional, Callable, Tuple  # Added Tuple
+from torch.optim import Optimizer, RMSprop
+
 
 class SharedLrSchedAdam(Optimizer):
     def __init__(
         self,
         params,
         lr: float = 1e-3,
-        betas: Tuple[float, float] = (0.9, 0.999),  # Changed tuple to Tuple
+        betas: Tuple[float, float] = (0.9, 0.999),
         eps: float = 1e-8,
         weight_decay: float = 0,
         amsgrad: bool = False,
@@ -149,4 +151,95 @@ class SharedLrSchedAdam(Optimizer):
 
             param.addcdiv_(exp_avg, denom, value=-step_size)
             step += 1
+
+class SharedRMSProp(Optimizer):
+    def __init__(
+        self,
+        params,
+        lr: float = 1e-3,
+        alpha: float = 0.99,
+        eps: float = 1e-8,
+        weight_decay: float = 0,
+        momentum: float = 0,
+        centered: bool = False,
+    ):
+        defaults = dict(lr=lr, alpha=alpha, eps=eps, weight_decay=weight_decay, momentum=momentum, centered=centered)
+        super().__init__(params, defaults)
+
+        for group in self.param_groups:
+            for p in group['params']:
+                state = self.state[p]
+                state['step'] = torch.zeros(1, dtype=torch.int64)
+                state['square_avg'] = torch.zeros_like(p, memory_format=torch.preserve_format)
+                if group['momentum'] > 0:
+                    state['momentum_buffer'] = torch.zeros_like(p, memory_format=torch.preserve_format)
+                if group['centered']:
+                    state['grad_avg'] = torch.zeros_like(p, memory_format=torch.preserve_format)
+
+    def share_memory(self):
+        for group in self.param_groups:
+            for p in group['params']:
+                state = self.state[p]
+                state['step'].share_memory_()
+                state['square_avg'].share_memory_()
+                if group['momentum'] > 0:
+                    state['momentum_buffer'].share_memory_()
+                if group['centered']:
+                    state['grad_avg'].share_memory_()
+
+    @torch.no_grad()
+    def step(self, closure: Optional[Callable[[], float]] = None) -> Optional[float]:
+        loss = None
+        if closure is not None:
+            with torch.enable_grad():
+                loss = closure()
+
+        for group in self.param_groups:
+            lr = group['lr']
+            alpha = group['alpha']
+            eps = group['eps']
+            weight_decay = group['weight_decay']
+            momentum = group['momentum']
+            centered = group['centered']
+
+            for p in group['params']:
+                if p.grad is None:
+                    continue
+                grad = p.grad.to(p.device)  # Ensure gradient is on the same device as parameter
+
+                state = self.state[p]
+
+                state['step'] += 1
+
+                if weight_decay != 0:
+                    grad = grad.add(p, alpha=weight_decay)
+
+                state['square_avg'] = state['square_avg'].mul(alpha).addcmul(grad, grad, value=1 - alpha)
+
+                if centered:
+                    state['grad_avg'] = state['grad_avg'].mul(alpha).add(grad, alpha=1 - alpha)
+                    avg = state['grad_avg'] / (1 - alpha ** state['step'].item())
+                else:
+                    avg = None
+
+                if momentum > 0:
+                    buf = state['momentum_buffer']
+                    buf.mul_(momentum).add_(grad)
+                    if centered:
+                        denom = state['square_avg'].sqrt().add_(eps)
+                        denom = denom.add(avg.sqrt())
+                        p.addcdiv_(buf, denom, value=-lr)
+                    else:
+                        denom = state['square_avg'].sqrt().add_(eps)
+                        p.addcdiv_(buf, denom, value=-lr)
+                else:
+                    if centered:
+                        denom = state['square_avg'].sqrt().add_(eps)
+                        denom = denom.add(avg.sqrt())
+                        p.addcdiv_(grad, denom, value=-lr)
+                    else:
+                        denom = state['square_avg'].sqrt().add_(eps)
+                        p.addcdiv_(grad, denom, value=-lr)
+
+        return loss
 

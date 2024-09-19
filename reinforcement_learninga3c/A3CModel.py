@@ -15,6 +15,7 @@ class A3Clstm(nn.Module):
         self.critic = nn.Linear(512, 1)
 
     def forward(self, x, hidden):
+        x = x.to(next(self.parameters()).device)  # Ensure input is on the same device
         x = self.conv(x)
         x = torch.flatten(x, start_dim=1)
         hx, cx = hidden

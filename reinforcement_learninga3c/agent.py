@@ -1,12 +1,11 @@
 import torch
-from torch.autograd import Variable
 import torch.nn.functional as F
-import logging
-import time
 
 from .A3CModel import A3Clstm
-from .SharedOptimizers import SharedLrSchedAdam
+from .SharedOptimizers import (  # Updated import if necessary
+    SharedLrSchedAdam, SharedRMSProp)
 from .utils import Args
+
 
 class Agent:
     def __init__(self, model: A3Clstm, env, args: Args):
@@ -14,8 +13,28 @@ class Agent:
         self.env = env
         self.current_life = 0
         self.state = self.env.reset()
-        self.hx = torch.zeros(1, 512, dtype=torch.float32)
-        self.cx = torch.zeros(1, 512, dtype=torch.float32)
+        self.hx = torch.zeros(1, 512, dtype=torch.float32, device=self.device)
+        self.cx = torch.zeros(1, 512, dtype=torch.float32, device=self.device)
+        self.eps_len = 0
+        self.args = args
+        self.values = []
+        self.log_probs = []
+        self.rewards = []
+        self.entropies = []
+        self.done = True
+        self.info = None
+        self.reward = 0
+
+    def __init__(self, model: A3Clstm, env, args: Args):
+        self.model = model
+        self.env = env
+        self.current_life = 0
+        self.state = self.env.reset()
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.model.to(self.device)
+        self.hx = torch.zeros(1, 512, dtype=torch.float32, device=self.device)
+        self.cx = torch.zeros(1, 512, dtype=torch.float32, device=self.device)
+        self.state = self.state.to(self.device)  # Ensure state is on the correct device
         self.eps_len = 0
         self.args = args
         self.values = []
